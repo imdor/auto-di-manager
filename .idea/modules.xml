@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/auto-di-manager.iml" filepath="$PROJECT_DIR$/.idea/auto-di-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/dyo.iml" filepath="$PROJECT_DIR$/.idea/dyo.iml" />
     </modules>
   </component>
