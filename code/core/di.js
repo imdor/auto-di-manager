@@ -79,7 +79,7 @@ var DI = new function(){
 				case 'instance':
 					return typeof(value) === 'string'? new (extract(value)) : new value;
 				case 'service':
-					return my.get(value, params['dependency']||{});
+					return my.get(value, params['dependency']);
 				case 'poll':
 					return poll[value]? poll[value] : null; //not "||" because of Samsung 2011 issues
 				default:
