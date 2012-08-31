@@ -3,11 +3,11 @@ SERVICES['dependency'] = {
         'addWidgetModel' : [
             {
                 'service' : 'widget-model',
-                'dependency' : { 'domainObject' : {'object' : 'WidgetDO(incomingWidget)'}} /*TODO: remove this hack*/
+                'dependency' : { 'domainObject' : {'object' : (function(){return WidgetDO(incomingWidget)})()}} /*TODO: remove this hack*/
             },
             {
                 'service' : 'widget-model',
-                'dependency' : { 'domainObject' : {'object' : 'WidgetDO(incomingWidget2)'} } /*TODO: remove this hack*/
+                'dependency' : { 'domainObject' : {'object' : (function(){return WidgetDO(incomingWidget2)})()} } /*TODO: remove this hack*/
             }
         ],
         'toolsManager' : {

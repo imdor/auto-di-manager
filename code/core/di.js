@@ -28,6 +28,14 @@ var DI = new function(){
         return poll[serviceName] = new SERVICES['constructor'][serviceName];
     };
 	
+	var extract = function(str){
+		var target = globalScope;
+		str.split('.').forEach(function(scope){
+			target = target[scope];
+		});    
+		return target;
+	};
+	
     var overwriteParams = function(origin, custom){
         var result = {};
         for(var param in origin){
@@ -67,9 +75,9 @@ var DI = new function(){
 				case 'value':
 					return value;
 				case 'object':
-					return typeof(value) === 'string'? (eval(value)) : value;
+					return typeof(value) === 'string'? (extract(value)) : value;
 				case 'instance':
-					return typeof(value) === 'string'? new (eval(value)) : new value;
+					return typeof(value) === 'string'? new (extract(value)) : new value;
 				case 'service':
 					return my.get(value, params['dependency']||{});
 				case 'poll':
